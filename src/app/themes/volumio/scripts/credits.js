@@ -10,7 +10,7 @@ var theme = process.argv.slice(2)[0];
 
 var itemHTML = '<strong>${NAME}</strong> </a>by ${AUTHOR} - ${LICENSENAME} - ${LINKREPO}<br>\n';
 var shortItemHTML = '<strong>${NAME}</strong>';
-var commitHTML = '<a href="${USERHOME}" target="_blank"><img src="${IMG}" width=50> ${NAME}</a> ${N} Commits<br>\n';
+var commitHTML = '<a href="${USERHOME}" target="_blank"><img src="${IMG}" width="50"><p>${NAME}<br><small>${N} Commits</small></p></a>\n';
 
 var Repo = function (sectionName, url, statsUrl) {
 	this.name = sectionName;
@@ -166,7 +166,7 @@ function addAuthors(authors) {
 	var myHTML = '<div class="row">';
 	for (authorN in authors) {
 		var author = authors[authorN];
-			myHTML += '<div class="col-md-4 col-xs-24">'
+			myHTML += '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-center">'
 
 		myHTML += commitHTML.replace("${USERHOME}",author.html_url)
 							.replace("${IMG}",author.avatar_url)
